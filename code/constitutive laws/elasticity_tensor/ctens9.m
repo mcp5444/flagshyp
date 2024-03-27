@@ -1,7 +1,7 @@
 %--------------------------------------------------------------------------
 % Evaluates the constitutive tensor (in Voigt notation) for material type 8.
 %--------------------------------------------------------------------------
-function c   = ctens8(kinematics,properties,dim)
+function c   = ctens9(kinematics,properties,dim)
 mu           = properties(2);
 lambda       = 2*mu;
 lambda_princ = kinematics.lambda;
