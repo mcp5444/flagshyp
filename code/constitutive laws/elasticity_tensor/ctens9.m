@@ -14,21 +14,11 @@ for l=1:dim
         for j=1:dim
             for i=1:dim
                 sum    =  0;
-                for alpha=1:dim    
-                    sum = sum + (2*(mu - sigma_aa(alpha)))*T(i,alpha)*T(j,alpha)*T(k,alpha)*T(l,alpha);
-                    for beta=1:dim 
-                        sum      = sum + lambda*(T(i,alpha)*T(j,alpha)*T(k,beta)*T(l,beta));
-                        lambda_a = lambda_princ(alpha);
-                        lambda_b = lambda_princ(beta);
-                        sigma_a  = sigma_aa(alpha);
-                        sigma_b  = sigma_aa(beta);
-                        if  (alpha ~= beta)
-                            sum  = sum + muab_choice(lambda_a,lambda_b,...
-                                   sigma_a,sigma_b,1,mu)*(T(i,alpha)*T(j,beta)*(T(k,alpha)*...
-                                                          T(l,beta)+T(k,beta)*T(l,alpha)));                        
-                        end
-                    end
-                end
+                eqn = 2*mu2*Bij*Bkl - 1/2*(Bij*Bjl + Bil*Bjk) - ...
+                      2/3*(mu1 + 2*mu2*I1)*(Bij*delta(k,l) + Bkl*delta(i,j)) + ...
+                      4/3*mu2*(Bij^2*delta(k,l) + Bkl^2*delta(i,j)) + ...
+                      2/9*(mu1*I1 + 4*mu2*I2)*delta(i,j)*delta(k,l) + ...
+                      1/3*(mu1*I1 + 2*mu2*I2)*(delta(i,k)*delta(j,l) + delta(i,l)*delta(j,k));
                 c(i,j,k,l) = c(i,j,k,l) + sum;
             end
         end
