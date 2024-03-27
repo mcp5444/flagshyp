@@ -2,13 +2,13 @@
 % Evaluates the constitutive tensor (in Voigt notation) for material type 8.
 %--------------------------------------------------------------------------
 function c   = ctens9(kinematics,properties,dim)
-mu           = properties(2);
-lambda       = 2*mu;
-lambda_princ = kinematics.lambda;
-J            = kinematics.J;
-sigma_aa     = 2*mu*log(lambda_princ) + lambda*log(J);
-T            = kinematics.n; 
-c            = zeros(dim,dim,dim,dim);
+mu1              = 0.595522;
+mu2              = 0.050381;
+lambda          = properties(3);
+J               = kinematics.J;
+B               = kinematics.b;
+k = 1e5;
+
 for l=1:dim
     for k=1:dim
         for j=1:dim
