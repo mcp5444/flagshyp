@@ -21,7 +21,7 @@ switch matyp
     case 8
          c_tensor = ctens8(kinematics,properties,dimension);
     case 9
-         c_tensor = ctens9(kinematics,properties,dim)
+         c_tensor = ctens9(kinematics,properties,dimension);
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)
