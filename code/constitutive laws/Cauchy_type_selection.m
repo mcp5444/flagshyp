@@ -8,6 +8,8 @@ PLAST_gauss = [];
 switch matyp
     case 1
          Cauchy = stress1(kinematics,properties,cons);
+    case 9
+         Cauchy = stress9(kinematics,properties,cons);
     case 3
          Cauchy = stress3(kinematics,properties,dim);
     case 4
